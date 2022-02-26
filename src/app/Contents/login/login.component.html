@@ -1,0 +1,46 @@
+<div class="contenedor">
+    <!--Session-->
+    <main [ngStyle]="{'animation-name':animationMain}">
+        <div class="imgLogin">
+            <img src="../../../assets/Logo.png" alt="logo">
+        </div>
+        <!--Iniciar sesion-->
+        <div class="formLogin" *ngIf="signIn">
+            <input (keypress)="nextFocus('userLogin', 'passwordLogin')" tabindex="1" id="userLogin" [(ngModel)]="userLogin" type="text" placeholder="User">
+            <br>
+            <input (keypress)="nextFocus('passwordLogin', 'buttonLogin')" tabindex="2" id="passwordLogin" [(ngModel)]="passwordLogin" type="password" placeholder="Password">
+            <br>
+            <button id="buttonLogin" class="button" tabindex="3" (click)="SignInLogin()">Sign in</button>
+            <div class="SignUp">
+                <button class="buttontexto" tabindex="4" (click)="SignUp()">Sign up</button>
+                <button class="buttontexto butonleft" tabindex="5" role="button">Forgot password?</button>
+            </div>
+        </div>
+        <!--Registrarse-->
+        <div class="formLogin" *ngIf="signUp">
+            <input tabindex="1" [(ngModel)]="nameRegister" type="text" placeholder="Names">
+            <br>
+            <input tabindex="2" [(ngModel)]="birthRegister" placeholder="birth date" type="text" onfocus="(this.type = 'date')" id="date">
+            <br>
+            <input tabindex="3" [(ngModel)]="userRegister" type="text" placeholder="User">
+            <br>
+            <input tabindex="4" [(ngModel)]="passwordRegister" type="password" placeholder="Password">
+            <br>
+            <input tabindex="5" [(ngModel)]="password2Register" type="password" placeholder="Repeat Password">
+            <br>
+            <div class="sex">
+                <div>
+                    <input (change)="checkbox2=false" [(ngModel)]="checkbox1" tabindex="6" type="checkbox" id="cc"><label for="radio1">Male</label>
+                </div>
+                <div>
+                    <input (change)="checkbox1=false" [(ngModel)]="checkbox2" tabindex="7" type="checkbox" id="radio2"><label for="radio2">Femlae</label>
+                </div>
+            </div>
+            <br>
+            <button class="button" (click)="SignUpRegister()" tabindex="8">Sign up</button>
+            <div class="SignUp">
+                <button class="buttontexto" role="button" tabindex="9" (click)="SignIn()">Sign in</button>
+            </div>
+        </div>
+    </main>
+</div>
